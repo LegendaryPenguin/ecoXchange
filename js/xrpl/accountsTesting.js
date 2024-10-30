@@ -6,7 +6,7 @@ async function initializeXRPL() {
     // Main account details
     const mainAccount = {
         address: "rn2GTNkJ19ZS4B8AHd1CzmXCTnjYpNUBLg",
-        secret: "sEdSdzc3kJy8iFBVkCeRqN6LQUtqSh3" // Replace with your actual testnet secret key
+        secret: "sEdSYzjwuAu3nPLSTpkrv31tBsoRCPt" 
     };
 
     // Check and Display Balance
@@ -31,7 +31,9 @@ async function initializeXRPL() {
     // Transfer Credits Function
     async function transferCredits() {
         const destination = document.getElementById("receiverWallet").value;
+        console.log("Destination " , destination);
         const amount = document.getElementById("amount").value;
+        console.log("Amount " , amount)
 
         // Input validation
         if (!destination || !amount || amount <= 0) {
