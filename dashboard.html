@@ -138,18 +138,22 @@
                 <label for="amount">Amount of Carbon Credits</label>
                 <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
             </div>
-            <button type="button" class="btn-transfer" onclick="transferCredits()">Transfer Credits</button>
+            <button type="button" class="btn-transfer">Transfer Credits</button>
         </form>
+    
+        <!-- Add a placeholder to display the balance -->
+        <p id="balance-display">Loading balance...</p>
     </div>
 
     <!-- Include jQuery and Bootstrap JS as in index.html -->
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="asset/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/xrpl/build/xrpl-latest-min.js"></script>
+    <script src="js/xrpl/accountsTesting.js"></script>
 
     <script>
-        function transferCredits() {
-            alert('Transfer initiated!');
-        }
+    
     </script>
+    
 </body>
 </html>
