@@ -7,14 +7,16 @@ async function initializeXRPL() {
     const mainAccount = {
         address: "rn2GTNkJ19ZS4B8AHd1CzmXCTnjYpNUBLg",
         secret: "sEdSYzjwuAu3nPLSTpkrv31tBsoRCPt" 
+
     };
+    const wallet = xrpl.Wallet.fromSeed(mainAccount.secret);
 
     // Check and Display Balance
     async function displayBalance() {
         try {
             const response = await client.request({
                 command: "account_info",
-                account: mainAccount.address,
+                account: wallet.classicAddress,
                 ledger_index: "validated"
             });
             const balance = xrpl.dropsToXrp(response.result.account_data.Balance);
@@ -31,9 +33,9 @@ async function initializeXRPL() {
     // Transfer Credits Function
     async function transferCredits() {
         const destination = document.getElementById("receiverWallet").value;
-        console.log("Destination " , destination);
+
         const amount = document.getElementById("amount").value;
-        console.log("Amount " , amount)
+
 
         // Input validation
         if (!destination || !amount || amount <= 0) {
@@ -44,19 +46,21 @@ async function initializeXRPL() {
         // Transaction details
         const transaction = {
             TransactionType: "Payment",
-            Account: mainAccount.address,
+            Account: wallet.classicAddress,
             Amount: xrpl.xrpToDrops(amount), // Convert XRP amount to drops
             Destination: destination
         };
 
         try {
             const prepared = await client.autofill(transaction);
-            const signed = await client.submitAndWait(await client.sign(prepared, mainAccount.secret));
-            if (signed.resultCode === "tesSUCCESS") {
+            const signed = wallet.sign(prepared);
+            const result = await client.submitAndWait(signed.tx_blob);
+            console.log("result: ", result);
+            if (result.result.meta.TransactionResult === "tesSUCCESS") {
                 alert("Transfer successful!");
                 displayBalance(); // Update balance after transfer
             } else {
-                alert("Transfer failed: " + signed.resultMessage);
+                alert("Transfer failed: " + result.result.meta.TransactionResult);
             }
         } catch (error) {
             alert("Transfer error: " + error.message);
