@@ -4,104 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - ecoXchange</title>
-    
+
     <!-- Link to Bootstrap and Custom CSS as in index.html -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>ecoXchange - One Page Multipurpose Bootstrap Theme</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="asset/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome CSS -->
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    
-    
-    <!-- Animate CSS -->
-    <link href="css/animate.css" rel="stylesheet" >
-    
-    <!-- Owl-Carousel -->
-    <link rel="stylesheet" href="css/owl.carousel.css" >
-    <link rel="stylesheet" href="css/owl.theme.css" >
-    <link rel="stylesheet" href="css/owl.transitions.css" >
-
-    <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    
-    <!-- Colors CSS -->
-    <link rel="stylesheet" type="text/css" href="css/color/green.css">
-    
-    
-    
-    <!-- Colors CSS -->
-    <link rel="stylesheet" type="text/css" href="css/color/green.css" title="green">
-    <link rel="stylesheet" type="text/css" href="css/color/light-red.css" title="light-red">
-    <link rel="stylesheet" type="text/css" href="css/color/blue.css" title="blue">
-    <link rel="stylesheet" type="text/css" href="css/color/light-blue.css" title="light-blue">
-    <link rel="stylesheet" type="text/css" href="css/color/yellow.css" title="yellow">
-    <link rel="stylesheet" type="text/css" href="css/color/light-green.css" title="light-green">
-
-    <!-- Custom Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    
-    
-    <!-- Modernizer js -->
-    <script src="js/modernizr.custom.js"></script>
     <link href="asset/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
+
     <style>
         /* Dashboard-specific styles */
         body, html {
             height: 100%;
-            margin: 0;
+            margin: 50px;
             font-family: Arial, sans-serif;
             background-color: black;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        .dashboard-container {
+        .dashboard-container, #saleForm, .marketplace-container {
             width: 90%;
             max-width: 600px;
             background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
+            padding: 0px;
             border-radius: 10px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
             text-align: center;
-            color: black; /* Sets all text in the container to black */
-            margin-top: 80px; /* Space for fixed navbar */
+            color: black;
+            margin-top: 20px;
+        }
+        .form-group input {
+            color: black;
+        }
+        .marketplace-container {
+            margin-bottom: 30px;
+        }
+        #marketplaceListings {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .posting {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            width: 250px;
+            text-align: left;
         }
     </style>
 </head>
 <body>
-    <div class="colors-switcher">
-        <a id="show-panel" class="hide-panel"><i class="fa fa-tint"></i></a>        
-            <ul class="colors-list">
-                <li><a title="Light Red" onClick="setActiveStyleSheet('light-red'); return false;" class="light-red"></a></li>
-                <li><a title="Blue" class="blue" onClick="setActiveStyleSheet('blue'); return false;"></a></li>
-                <li class="no-margin"><a title="Light Blue" onClick="setActiveStyleSheet('light-blue'); return false;" class="light-blue"></a></li>
-                <li><a title="Green" class="green" onClick="setActiveStyleSheet('green'); return false;"></a></li>
-                
-                <li class="no-margin"><a title="light-green" class="light-green" onClick="setActiveStyleSheet('light-green'); return false;"></a></li>
-                <li><a title="Yellow" class="yellow" onClick="setActiveStyleSheet('yellow'); return false;"></a></li>
-                
-            </ul>
-
-    </div>  
-<!-- Styleswitcher 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -109,14 +68,12 @@
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">ecoXchange</a>
             </div>
-
-            <!-- Navbar links -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="index.html#page-top">Home</a></li>
-                    <li><a class="page-scroll" href="dashboard.html">Dashboard</a></li>
-                    <li><a class="page-scroll" href="index.html#credits">Credits</a></li>
-                    <li><a class="page-scroll" href="index.html#impact">Impact</a></li>
+                    <li><a href="index.html#page-top">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="index.html#credits">Credits</a></li>
+                    <li><a href="index.html#impact">Impact</a></li>
                 </ul>
             </div>
         </div>
@@ -140,20 +97,93 @@
             </div>
             <button type="button" class="btn-transfer">Transfer Credits</button>
         </form>
-    
-        <!-- Add a placeholder to display the balance -->
         <p id="balance-display">Loading balance...</p>
     </div>
 
-    <!-- Include jQuery and Bootstrap JS as in index.html -->
+    <!-- Posting Form with adjusted size and centered text -->
+    <div id="saleForm">
+        <h2>Post Carbon Credits for Sale</h2>
+        <form>
+            <div class="form-group">
+                <label for="creditsForSale">Carbon Credits for Sale</label>
+                <input type="number" id="creditsForSale" name="creditsForSale" placeholder="Enter credits for sale" required>
+            </div>
+            <div class="form-group">
+                <label for="pricePerCredit">Price per Credit</label>
+                <input type="number" id="pricePerCredit" name="pricePerCredit" placeholder="Enter price per credit" required>
+            </div>
+            <div class="form-group">
+                <label for="contactInfo">Contact Info</label>
+                <input type="text" id="contactInfo" name="contactInfo" placeholder="Enter your contact information" required>
+            </div>
+            <button type="button" class="btn btn-success btn-post">Post for Sale</button>
+        </form>
+    </div>
+
+    <!-- Marketplace Section with horizontal listings -->
+    <div class="marketplace-container">
+        <h3>Marketplace Listings</h3>
+        <div id="marketplaceListings"></div>
+    </div>
+
+    <!-- JavaScript to handle form submission and storage -->
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="asset/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/xrpl/build/xrpl-latest-min.js"></script>
     <script src="js/xrpl/accountsTesting.js"></script>
 
     <script>
-    
+        // Load listings from localStorage on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadListings();
+        });
+
+        // Handle "Post for Sale" button click
+        document.querySelector('.btn-post').addEventListener('click', function () {
+            const creditsForSale = document.getElementById('creditsForSale').value;
+            const pricePerCredit = document.getElementById('pricePerCredit').value;
+            const contactInfo = document.getElementById('contactInfo').value;
+
+            if (creditsForSale && pricePerCredit && contactInfo) {
+                const newListing = { creditsForSale, pricePerCredit, contactInfo };
+
+                // Save the new listing to localStorage
+                saveListing(newListing);
+
+                // Add the new listing to the page
+                addListingToPage(newListing);
+
+                // Clear the form
+                document.getElementById('saleForm').reset();
+            } else {
+                alert('Please fill out all fields before posting.');
+            }
+        });
+
+        // Save listing to localStorage
+        function saveListing(listing) {
+            const listings = JSON.parse(localStorage.getItem('marketplaceListings')) || [];
+            listings.push(listing);
+            localStorage.setItem('marketplaceListings', JSON.stringify(listings));
+        }
+
+        // Load listings from localStorage
+        function loadListings() {
+            const listings = JSON.parse(localStorage.getItem('marketplaceListings')) || [];
+            listings.forEach(addListingToPage);
+        }
+
+        // Add a listing to the marketplace section on the page
+        function addListingToPage(listing) {
+            const newListing = document.createElement('div');
+            newListing.classList.add('posting');
+            newListing.innerHTML = `
+                <p><strong>Credits for Sale:</strong> ${listing.creditsForSale}</p>
+                <p><strong>Price per Credit:</strong> ${listing.pricePerCredit}</p>
+                <p><strong>Contact Info:</strong> ${listing.contactInfo}</p>
+            `;
+            document.getElementById('marketplaceListings').appendChild(newListing);
+        }
     </script>
-    
 </body>
 </html>
