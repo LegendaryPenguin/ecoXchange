@@ -1,4 +1,5 @@
 **ecoXchange**
+
 🌍 **Inspiration**
 The first inspiration for this project came from a research project I did last year with the local Region 7 EPA. I did a project on environmental altruism and while it wasn't technically oriented, some of the discussions I had really stood oout to me. One discussion in particular about a potential future Carbon Credits cap and trade system greatly stood out to me. I deciided that utilizing the XRPL would be the perfect way to actually implement a real world carbon credits exchange system. By creating a decentralized marketplace for carbon credits, ecoXchange enables entities to contribute meaningfully to global environmental goals while proving their own green footprint.
 
